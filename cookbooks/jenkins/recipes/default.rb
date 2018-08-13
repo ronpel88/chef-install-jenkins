@@ -17,7 +17,13 @@ end
 ['nmap','wget','git', 'python-pip', 'groovy', 'ruby-full'].each do |p|
   package p do
     action :install
+    ignore_failure true
   end
+end
+
+execute "apt-get-update" do
+  command "apt-get update"
+  ignore_failure true
 end
 
 # install java
